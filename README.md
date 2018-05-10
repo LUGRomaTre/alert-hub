@@ -40,3 +40,15 @@ Le classi `Parser` hanno lo scopo di prendere avvisi dai vari siti (come quelli 
  ```python
 crawler.register_parser(parsers.NuovoParser)
 ```
+
+Nella pratica si tratta di estendere la classe astratta `Parser` e di registrarla presso l'oggetto `Crawler` che
+potrà così eseguirla. Bisogna implementare i metodi `channel_name` e `run`. 
+
+`channel-name` ritorna il nome del canale dove salvare i dati (scegliere un "nome-significativo");
+`run` si occupa di fare il parsing del sito desiderato e ritornare una `iterable` di oggetti `Article`. 
+
+L'oggetto `Article` supporta i seguenti campi:
+
+ - text (required)
+ - title
+ - datetime
